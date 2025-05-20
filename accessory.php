@@ -164,7 +164,7 @@ session_start();
                           data-condition='" . $row["condition"] . "' 
                           data-quantity='" . $row["quantity"] . "'
                           data-image='" . $imagePath . "'>Edit</button>";
-                    echo "<button class='delete-btn' data-id='" . $row["deco_id"] . "' data-name='" . $row["deco_name"] . "'>Delete</button>";
+                    echo "<button class='delete-btn' data-id='" . $row["deco_id"] . "' data-name='" . $row["deco_name"] . "'>Archive</button>";
                     echo "</div>";
                     echo "</div>";
                 }
@@ -276,11 +276,11 @@ session_start();
     <!-- Delete Accessory Modal -->
     <div id="deleteModal" class="modal">
         <div class="modal-content">
-            <h2>Delete Accessory</h2>
+            <h2>Archive Accessory</h2>
             <form action="delete_accessory.php" method="POST">
                 <input type="hidden" id="deleteAccessoryId" name="deco_id">
                 <div class="form-group">
-                    <label>Are you sure you want to delete:</label>
+                    <label>Are you sure you want to archive:</label>
                     <p id="deleteAccessoryName" class="selected-item-name"></p>
                 </div>
                 
@@ -290,7 +290,7 @@ session_start();
                 </div>
                 
                 <div class="submit-container">
-                    <button type="submit" class="submit-btn" style="background-color: #ff4444; color: white;">Delete Accessory</button>
+                    <button type="submit" class="submit-btn" style="background-color: #ff4444; color: white;">Archive Accessory</button>
                 </div>
             </form>
         </div>

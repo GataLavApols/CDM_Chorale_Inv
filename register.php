@@ -1,4 +1,5 @@
 <?php
+require_once 'error_handler.php';
 session_start();
 include 'db_connect.php';
 
@@ -25,36 +26,39 @@ if (isset($_GET['logout'])) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = trim($_POST['username']);
+    $username = $_POST['username'];
     $password = $_POST['password'];
     $confirm_password = $_POST['confirm_password'];
     $full_name = trim($_POST['full_name']);
     $email = trim($_POST['email']);
     
     // Validate input
-    if (empty($username) || empty($password) || empty($confirm_password) || empty($full_name) || empty($email)) {
-        $error = "All fields are required";
+    if (empty($username) || empty($password) || empty($confirm_password)) {
+        $error = handleValidationError();
     } elseif ($password !== $confirm_password) {
-        $error = "Passwords do not match";
+        $error = handleValidationError();
     } elseif (strlen($password) < 6) {
-        $error = "Password must be at least 6 characters long";
+        $error = handleValidationError();
     } else {
-        // Check if username already exists in login table
-        $check_sql = "SELECT login_id FROM login WHERE username = ?";
-        $check_stmt = $conn->prepare($check_sql);
-        $check_stmt->bind_param("s", $username);
-        $check_stmt->execute();
-        if ($check_stmt->get_result()->num_rows > 0) {
-            $error = "Username already exists";
+        // Check if username exists
+        $stmt = $conn->prepare("SELECT id_user_login FROM user_login WHERE username = ?");
+        $stmt->bind_param("s", $username);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        
+        if ($result->num_rows > 0) {
+            $error = handleValidationError();
         } else {
-            // Insert into pending_users table
-            $insert_sql = "INSERT INTO pending_users (username, password, full_name, email, status, requested_at) VALUES (?, ?, ?, ?, 'pending', NOW())";
-            $insert_stmt = $conn->prepare($insert_sql);
-            $insert_stmt->bind_param("ssss", $username, $password, $full_name, $email);
-            if ($insert_stmt->execute()) {
-                $success = "Registration submitted! Your account is pending approval by an admin.";
+            // Hash password and insert user
+            $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+            $stmt = $conn->prepare("INSERT INTO user_login (username, password, full_name, email) VALUES (?, ?, ?, ?)");
+            $stmt->bind_param("ssss", $username, $hashed_password, $full_name, $email);
+            
+            if (!$stmt->execute()) {
+                $error = handleValidationError();
             } else {
-                $error = "Error submitting registration";
+                header("Location: index.php");
+                exit();
             }
         }
     }

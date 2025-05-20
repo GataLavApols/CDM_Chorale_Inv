@@ -288,13 +288,13 @@ $members_result = $conn->query($members_sql);
                                         <i class='fas fa-undo'></i> Restore
                                     </button>
                                     <button class='delete-btn' onclick='confirmDeleteInstrument(" . $row['id'] . ")' style='background-color: #f44336; margin-left: 5px;'>
-                                        <i class='fas fa-trash'></i> Delete
+                                        <i class='fas fa-trash'></i> Archive
                                     </button>
                                   </td>";
                             echo "</tr>";
                                     }
                                 } else {
-                                    echo "<tr><td colspan='7' style='text-align: center;'>No deleted instruments found</td></tr>";
+                                    echo "<tr><td colspan='7' style='text-align: center;'>No archived instruments found</td></tr>";
                                 }
                                 ?>
                             </tbody>
@@ -335,13 +335,13 @@ $members_result = $conn->query($members_sql);
                                         <i class='fas fa-undo'></i> Restore
                                     </button>
                                     <button class='delete-btn' onclick='confirmDeleteAccessory(" . $row['id'] . ")' style='background-color: #f44336; margin-left: 5px;'>
-                                        <i class='fas fa-trash'></i> Delete
+                                        <i class='fas fa-trash'></i> Archive
                                     </button>
                                   </td>";
                             echo "</tr>";
                                     }
                                 } else {
-                                    echo "<tr><td colspan='7' style='text-align: center;'>No deleted accessories found</td></tr>";
+                                    echo "<tr><td colspan='7' style='text-align: center;'>No archived accessories found</td></tr>";
                                 }
                                 ?>
                             </tbody>
@@ -382,13 +382,13 @@ $members_result = $conn->query($members_sql);
                                         <i class='fas fa-undo'></i> Restore
                                     </button>
                                     <button class='delete-btn' onclick='confirmDeleteClothing(" . $row['id'] . ")' style='background-color: #f44336; margin-left: 5px;'>
-                                        <i class='fas fa-trash'></i> Delete
+                                        <i class='fas fa-trash'></i> Archive
                                     </button>
                                   </td>";
                             echo "</tr>";
                                     }
                                 } else {
-                                    echo "<tr><td colspan='7' style='text-align: center;'>No deleted clothing found</td></tr>";
+                                    echo "<tr><td colspan='7' style='text-align: center;'>No archived clothing found</td></tr>";
                                 }
                                 ?>
                             </tbody>
@@ -428,13 +428,13 @@ $members_result = $conn->query($members_sql);
                                         <i class='fas fa-undo'></i> Restore
                                     </button>
                                     <button class='delete-btn' onclick='confirmDeleteMember(" . $row['id'] . ")' style='background-color: #f44336; margin-left: 5px;'>
-                                        <i class='fas fa-trash'></i> Delete
+                                        <i class='fas fa-trash'></i> Archive
                                     </button>
                                   </td>";
                             echo "</tr>";
                                     }
                                 } else {
-                                    echo "<tr><td colspan='7' style='text-align: center;'>No deleted members found</td></tr>";
+                                    echo "<tr><td colspan='7' style='text-align: center;'>No archived members found</td></tr>";
                                 }
                                 ?>
                             </tbody>
@@ -443,7 +443,7 @@ $members_result = $conn->query($members_sql);
 
             <div style="text-align: right; margin-top: 20px;">
                 <button class="delete-btn" id="emptyTrashBtn" onclick="confirmDeleteAll()" style="background-color: #f44336; padding: 10px 15px;">
-                    <i class="fas fa-trash-alt"></i> Empty Trash
+                    <i class="fas fa-trash-alt"></i> Empty Archive
                 </button>
             </div>
             <input type="hidden" id="currentTrashType" value="instruments">
@@ -469,7 +469,7 @@ $members_result = $conn->query($members_sql);
             <p>Are you sure you want to permanently delete this item? This action cannot be undone.</p>
             <div class="submit-container" style="display: flex; justify-content: space-between;">
                 <button type="button" class="submit-btn" style="background-color: #ccc;" onclick="closeDeleteModal()">Cancel</button>
-                <button type="button" class="submit-btn" style="background-color: #f44336;" id="confirmDelete">Delete</button>
+                <button type="button" class="submit-btn" style="background-color: #f44336;" id="confirmDelete">Archive</button>
             </div>
         </div>
     </div>
@@ -477,8 +477,8 @@ $members_result = $conn->query($members_sql);
     <!-- Delete All Confirmation Modal -->
     <div id="deleteAllModal" class="modal">
         <div class="modal-content">
-            <h2>Empty Trash</h2>
-            <p>Are you sure you want to permanently delete ALL items in the trash? This action cannot be undone.</p>
+            <h2>Empty Archive</h2>
+            <p>Are you sure you want to permanently delete ALL items in the archive? This action cannot be undone.</p>
             <div class="submit-container" style="display: flex; justify-content: space-between;">
                 <button type="button" class="submit-btn" style="background-color: #ccc;" onclick="closeDeleteAllModal()">Cancel</button>
                 <button type="button" class="submit-btn" style="background-color: #f44336;" id="confirmDeleteAll">Delete All</button>
@@ -509,7 +509,7 @@ $members_result = $conn->query($members_sql);
         // Show selected tab and activate button
         document.getElementById('tab-' + tab).classList.add('active');
         event.target.classList.add('active');
-        // Set the current type for Empty Trash
+        // Set the current type for Empty Archive
         document.getElementById('currentTrashType').value = tab;
     }
 

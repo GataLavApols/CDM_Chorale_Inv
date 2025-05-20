@@ -182,7 +182,7 @@ session_start();
                           data-position='" . $row["position"] . "' 
                           data-birthdate='" . (isset($row["birthdate"]) ? $row["birthdate"] : "") . "' 
                           data-address='" . (isset($row["address"]) ? $row["address"] : "") . "'>Edit</button>";
-                    echo "<button class='delete-btn' data-id='" . $row["member_id"] . "' data-name='" . htmlspecialchars($display_name) . "'>Delete</button>";
+                    echo "<button class='delete-btn' data-id='" . $row["member_id"] . "' data-name='" . htmlspecialchars($display_name) . "'>Archive</button>";
                     echo "</div>";
                     echo "</div>";
                 }
@@ -291,14 +291,14 @@ session_start();
         </div>
     </div>
     
-    <!-- Delete Member Modal -->
+    <!-- Archive Member Modal -->
     <div id="deleteModal" class="modal">
         <div class="modal-content">
-            <h2>Delete Member</h2>
+            <h2>Archive Member</h2>
             <form action="delete_member.php" method="POST">
                 <input type="hidden" id="deleteMemberId" name="member_id">
                 <div class="form-group">
-                    <label>Are you sure you want to delete:</label>
+                    <label>Are you sure you want to archive:</label>
                     <p id="deleteMemberName" class="selected-item-name"></p>
                 </div>
                 
@@ -308,7 +308,7 @@ session_start();
                 </div>
                 
                 <div class="submit-container">
-                    <button type="submit" class="submit-btn" style="background-color: #ff4444; color: white;">Delete Member</button>
+                    <button type="submit" class="submit-btn" style="background-color: #ff4444; color: white;">Archive Member</button>
                 </div>
             </form>
         </div>
@@ -477,7 +477,7 @@ session_start();
         addModal.style.display = "flex";
     }
     
-    // Delete Modal
+    // Archive Modal
     var deleteModal = document.getElementById("deleteModal");
     var deleteBtns = document.getElementsByClassName("delete-btn");
     
@@ -486,10 +486,10 @@ session_start();
             // Get the member id from data attributes
             var memberId = this.getAttribute("data-id");
             
-            // Set the value in the delete confirmation form
+            // Set the value in the archive confirmation form
             document.getElementById("deleteMemberId").value = memberId;
             
-            // Show the delete confirmation modal
+            // Show the archive confirmation modal
             deleteModal.style.display = "flex";
             return false; // Prevent default behavior
         }

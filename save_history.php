@@ -1,4 +1,5 @@
 <?php
+require_once 'error_handler.php';
 session_start();
 include 'db_connect.php';
 
@@ -23,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     
     if (!empty($missing_fields)) {
-        die("Error: Missing required fields: " . implode(', ', $missing_fields));
+        die(handleValidationError());
     }
 
     // Get form data
@@ -38,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     // Validate student number length (10-11 characters)
     if (!empty($sn) && (strlen($sn) < 10 || strlen($sn) > 11)) {
-        die("Error: Student Number must be 10-11 characters long.");
+        die(handleValidationError());
     }
     
     // Ensure status is a valid enum value
@@ -120,10 +121,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } catch (Exception $e) {
         // Rollback transaction on error
         $conn->rollback();
-        die("Error: " . $e->getMessage());
+        die(handleValidationError());
     }
 } else {
-    die("Invalid request method");
+    die(handleValidationError());
 }
 
 $conn->close();

@@ -171,7 +171,7 @@ if (!isset($_SESSION['username'])) {
                           data-condition='" . $row["condition"] . "' 
                           data-quantity='" . $row["quantity"] . "'
                           data-image='" . $imagePath . "'>Edit</button>";
-                    echo "<button class='delete-btn' data-id='" . $row["instru_id"] . "' data-name='" . $row["instrument_name"] . "'>Delete</button>";
+                    echo "<button class='delete-btn' data-id='" . $row["instru_id"] . "' data-name='" . $row["instrument_name"] . "'>Archive</button>";
                     echo "</div>";
                     echo "</div>";
                 }
@@ -285,11 +285,11 @@ if (!isset($_SESSION['username'])) {
     <!-- Delete Instrument Modal -->
     <div id="deleteModal" class="modal">
         <div class="modal-content">
-            <h2>Delete Instrument</h2>
+            <h2>Archive Instrument</h2>
             <form action="delete_instrument.php" method="POST">
                 <input type="hidden" id="deleteInstrumentId" name="instru_id">
                 <div class="form-group">
-                    <label>Are you sure you want to delete:</label>
+                    <label>Are you sure you want to archive:</label>
                     <p id="deleteInstrumentName" class="selected-item-name"></p>
                 </div>
                 
@@ -299,7 +299,7 @@ if (!isset($_SESSION['username'])) {
                 </div>
                 
                 <div class="submit-container">
-                    <button type="submit" class="submit-btn" style="background-color: #ff4444; color: white;">Delete Instrument</button>
+                    <button type="submit" class="submit-btn" style="background-color: #ff4444; color: white;">Archive Instrument</button>
                 </div>
             </form>
         </div>

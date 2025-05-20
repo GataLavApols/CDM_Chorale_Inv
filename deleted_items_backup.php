@@ -265,7 +265,7 @@ $result = $conn->query($sql);
 
             <div style="text-align: right; margin-top: 20px;">
                 <button class="delete-btn" onclick="confirmDeleteAll()" style="background-color: #f44336; padding: 10px 15px;">
-                    <i class="fas fa-trash-alt"></i> Empty Trash
+                    <i class="fas fa-trash-alt"></i> Empty Archive
                 </button>
             </div>
         </div>
@@ -298,8 +298,8 @@ $result = $conn->query($sql);
     <!-- Delete All Confirmation Modal -->
     <div id="deleteAllModal" class="modal">
         <div class="modal-content">
-            <h2>Empty Trash</h2>
-            <p>Are you sure you want to permanently delete ALL items in the trash? This action cannot be undone.</p>
+            <h2>Empty Archive</h2>
+            <p>Are you sure you want to permanently delete ALL items in the archive? This action cannot be undone.</p>
             <div class="submit-container" style="display: flex; justify-content: space-between;">
                 <button type="button" class="submit-btn" style="background-color: #ccc;" onclick="closeDeleteAllModal()">Cancel</button>
                 <button type="button" class="submit-btn" style="background-color: #f44336;" id="confirmDeleteAll">Delete All</button>
