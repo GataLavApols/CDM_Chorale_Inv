@@ -65,6 +65,66 @@ session_start();
             width: 170px;
         }
         /* Rest of the existing styles */
+        /* Profile Modal Modern Styles */
+        #profileModal .modal-content {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+            padding: 32px 32px 24px 32px;
+            max-width: 400px;
+            width: 90%;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            align-items: stretch;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        #profileModal .profile-info {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 10px;
+        }
+        #profileModal label {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 2px;
+            font-size: 15px;
+        }
+        #profileModal p {
+            background: #f4f4f4;
+            border-radius: 6px;
+            padding: 8px 12px;
+            margin: 0;
+            color: #222;
+            font-size: 15px;
+        }
+        #closeProfileBtn {
+            background: #2c2474;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            padding: 10px 0;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.2s;
+        }
+        #closeProfileBtn:hover {
+            background: #1a174a;
+        }
+        #profileModal .modal-content h2 {
+            text-align: center;
+            color: #2c2474;
+            margin-bottom: 18px;
+            font-size: 22px;
+            font-weight: 700;
+        }
+        #profileModal {
+            align-items: center;
+            justify-content: center;
+        }
     </style>
 </head>
 <body>
