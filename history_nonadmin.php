@@ -303,7 +303,7 @@ if(isset($_SESSION['error_message'])) {
                             echo "<td>" . htmlspecialchars($row['sn']) . "</td>";
                             echo "<td>" . htmlspecialchars($row['status']) . "</td>";
                             echo "<td>" . htmlspecialchars($row['remarks']) . "</td>";
-                            echo "<td>" . ($row['is_approved'] ? "Resolved" : "Pending") . "</td>";
+                            echo "<td>" . ($row['is_approved'] ? "Resolved" : "Pending Review") . "</td>";
                             echo "<td>" . htmlspecialchars($row['created_at']) . "</td>";
                             echo "<td>
                                     <button class='edit-btn' onclick='openEditModal(" . $row['history_id'] . ", " . json_encode($row) . ")'>

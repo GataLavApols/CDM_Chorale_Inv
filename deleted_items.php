@@ -255,7 +255,7 @@ $members_result = $conn->query($members_sql);
 
             <!-- Tab Contents -->
             <div id="tab-instruments" class="tab-content active">
-                <h2 class="section-title">Deleted Instruments</h2>
+                <h2 class="section-title">Archived Instruments</h2>
                 <table>
                     <thead>
                         <tr>
@@ -264,8 +264,8 @@ $members_result = $conn->query($members_sql);
                             <th>Quantity</th>
                             <th>Condition</th>
                             <th>Reason</th>
-                            <th>Deleted By</th>
-                            <th>Deleted At</th>
+                            <th>Archived By</th>
+                            <th>Archived At</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -288,13 +288,13 @@ $members_result = $conn->query($members_sql);
                                         <i class='fas fa-undo'></i> Restore
                                     </button>
                                     <button class='delete-btn' onclick='confirmDeleteInstrument(" . $row['id'] . ")' style='background-color: #f44336; margin-left: 5px;'>
-                                        <i class='fas fa-trash'></i> Delete
+                                        <i class='fas fa-trash'></i> Archive
                                     </button>
                                   </td>";
                             echo "</tr>";
                                     }
                                 } else {
-                                    echo "<tr><td colspan='7' style='text-align: center;'>No deleted instruments found</td></tr>";
+                                    echo "<tr><td colspan='7' style='text-align: center;'>No Archived instruments found</td></tr>";
                                 }
                                 ?>
                             </tbody>
@@ -302,7 +302,7 @@ $members_result = $conn->query($members_sql);
             </div>
 
             <div id="tab-accessories" class="tab-content">
-                <h2 class="section-title">Deleted Accessories</h2>
+                <h2 class="section-title">Archived Accessories</h2>
                 <table>
                     <thead>
                         <tr>
@@ -311,8 +311,8 @@ $members_result = $conn->query($members_sql);
                             <th>Quantity</th>
                             <th>Condition</th>
                             <th>Reason</th>
-                            <th>Deleted By</th>
-                            <th>Deleted At</th>
+                            <th>Archived By</th>
+                            <th>Archived At</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -335,13 +335,13 @@ $members_result = $conn->query($members_sql);
                                         <i class='fas fa-undo'></i> Restore
                                     </button>
                                     <button class='delete-btn' onclick='confirmDeleteAccessory(" . $row['id'] . ")' style='background-color: #f44336; margin-left: 5px;'>
-                                        <i class='fas fa-trash'></i> Delete
+                                        <i class='fas fa-trash'></i> Archive
                                     </button>
                                   </td>";
                             echo "</tr>";
                                     }
                                 } else {
-                                    echo "<tr><td colspan='7' style='text-align: center;'>No deleted accessories found</td></tr>";
+                                    echo "<tr><td colspan='7' style='text-align: center;'>No archived accessories found</td></tr>";
                                 }
                                 ?>
                             </tbody>
@@ -349,7 +349,7 @@ $members_result = $conn->query($members_sql);
             </div>
 
             <div id="tab-clothing" class="tab-content">
-                <h2 class="section-title">Deleted Clothing</h2>
+                <h2 class="section-title">Archived Clothing</h2>
                 <table>
                     <thead>
                         <tr>
@@ -358,8 +358,8 @@ $members_result = $conn->query($members_sql);
                             <th>Quantity</th>
                             <th>Condition</th>
                             <th>Reason</th>
-                            <th>Deleted By</th>
-                            <th>Deleted At</th>
+                            <th>Archived By</th>
+                            <th>Archived At</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -382,13 +382,13 @@ $members_result = $conn->query($members_sql);
                                         <i class='fas fa-undo'></i> Restore
                                     </button>
                                     <button class='delete-btn' onclick='confirmDeleteClothing(" . $row['id'] . ")' style='background-color: #f44336; margin-left: 5px;'>
-                                        <i class='fas fa-trash'></i> Delete
+                                        <i class='fas fa-trash'></i> Archive
                                     </button>
                                   </td>";
                             echo "</tr>";
                                     }
                                 } else {
-                                    echo "<tr><td colspan='7' style='text-align: center;'>No deleted clothing found</td></tr>";
+                                    echo "<tr><td colspan='7' style='text-align: center;'>No archived clothing found</td></tr>";
                                 }
                                 ?>
                             </tbody>
@@ -396,15 +396,15 @@ $members_result = $conn->query($members_sql);
             </div>
 
             <div id="tab-members" class="tab-content">
-                <h2 class="section-title">Deleted Members</h2>
+                <h2 class="section-title">Archived Members</h2>
                 <table>
                     <thead>
                         <tr>
                             <th>Image</th>
                             <th>Member Name</th>
                             <th>Reason</th>
-                            <th>Deleted By</th>
-                            <th>Deleted At</th>
+                            <th>Archived By</th>
+                            <th>Archived At</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -428,13 +428,13 @@ $members_result = $conn->query($members_sql);
                                         <i class='fas fa-undo'></i> Restore
                                     </button>
                                     <button class='delete-btn' onclick='confirmDeleteMember(" . $row['id'] . ")' style='background-color: #f44336; margin-left: 5px;'>
-                                        <i class='fas fa-trash'></i> Delete
+                                        <i class='fas fa-trash'></i> Archive
                                     </button>
                                   </td>";
                             echo "</tr>";
                                     }
                                 } else {
-                                    echo "<tr><td colspan='7' style='text-align: center;'>No deleted members found</td></tr>";
+                                    echo "<tr><td colspan='7' style='text-align: center;'>No archived members found</td></tr>";
                                 }
                                 ?>
                             </tbody>
@@ -443,7 +443,7 @@ $members_result = $conn->query($members_sql);
 
             <div style="text-align: right; margin-top: 20px;">
                 <button class="delete-btn" id="emptyTrashBtn" onclick="confirmDeleteAll()" style="background-color: #f44336; padding: 10px 15px;">
-                    <i class="fas fa-trash-alt"></i> Empty Trash
+                    <i class="fas fa-trash-alt"></i> Empty Archive
                 </button>
             </div>
             <input type="hidden" id="currentTrashType" value="instruments">
@@ -477,7 +477,7 @@ $members_result = $conn->query($members_sql);
     <!-- Delete All Confirmation Modal -->
     <div id="deleteAllModal" class="modal">
         <div class="modal-content">
-            <h2>Empty Trash</h2>
+            <h2>Empty Archive</h2>
             <p>Are you sure you want to permanently delete ALL items in the trash? This action cannot be undone.</p>
             <div class="submit-container" style="display: flex; justify-content: space-between;">
                 <button type="button" class="submit-btn" style="background-color: #ccc;" onclick="closeDeleteAllModal()">Cancel</button>

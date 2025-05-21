@@ -330,7 +330,7 @@ $approved_borrowed_result = $conn->query($approved_borrowed_sql);
                             echo "<td>" . htmlspecialchars($row['quantity']) . "</td>";
                             echo "<td>" . htmlspecialchars($row['sn']) . "</td>";
                             echo "<td>" . htmlspecialchars($row['status']) . "</td>";
-                            echo "<td>" . ($row['is_approved'] ? "Resolved" : "Pending") . "</td>";
+                            echo "<td>" . ($row['is_approved'] ? "Resolved" : "Pending Review") . "</td>";
                             echo "<td>" . htmlspecialchars($row['remarks']) . "</td>";
                             echo "<td>" . htmlspecialchars($row['created_at']) . "</td>";
                             echo "<td>";

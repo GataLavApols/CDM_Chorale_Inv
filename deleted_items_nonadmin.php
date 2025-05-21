@@ -248,7 +248,7 @@ $members_result = $conn->query($members_sql);
 
        <!-- Deleted Instruments Table -->
        <div id="tab-instruments" class="tab-content active">
-       <h2 class="section-title">Deleted Instruments</h2>
+       <h2 class="section-title">Archived Instruments</h2>
                         <table>
                             <thead>
                                 <tr>
@@ -257,8 +257,8 @@ $members_result = $conn->query($members_sql);
                                     <th>Quantity</th>
                                     <th>Condition</th>
                                     <th>Reason</th>
-                                    <th>Deleted By</th>
-                                    <th>Deleted At</th>
+                                    <th>Archived By</th>
+                                    <th>Archived At</th>
                                    
                                 </tr>
                             </thead>
@@ -280,7 +280,7 @@ $members_result = $conn->query($members_sql);
                             echo "</tr>";
                                     }
                                 } else {
-                                    echo "<tr><td colspan='7' style='text-align: center;'>No deleted instruments found</td></tr>";
+                                    echo "<tr><td colspan='7' style='text-align: center;'>No archived instruments found</td></tr>";
                                 }
                                 ?>
                             </tbody>
@@ -289,7 +289,7 @@ $members_result = $conn->query($members_sql);
 
                          <!-- Deleted Accessories Table -->
                         <div id="tab-accessories" class="tab-content">
-                         <h2 class="section-title">Deleted Accessories</h2>
+                         <h2 class="section-title">Archived Accessories</h2>
                         <table>
                             <thead>
                                 <tr>
@@ -298,8 +298,8 @@ $members_result = $conn->query($members_sql);
                                     <th>Quantity</th>
                                     <th>Condition</th>
                                     <th>Reason</th>
-                                    <th>Deleted By</th>
-                                    <th>Deleted At</th>
+                                    <th>Archived By</th>
+                                    <th>Archived At</th>
                                     
                                 </tr>
                             </thead>
@@ -321,7 +321,7 @@ $members_result = $conn->query($members_sql);
                             echo "</tr>";
                                     }
                                 } else {
-                                    echo "<tr><td colspan='7' style='text-align: center;'>No deleted accessories found</td></tr>";
+                                    echo "<tr><td colspan='7' style='text-align: center;'>No archived accessories found</td></tr>";
                                 }
                                 ?>
                             </tbody>
@@ -330,7 +330,7 @@ $members_result = $conn->query($members_sql);
 
                          <!-- Deleted Clothing Table -->
                          <div id="tab-clothing" class="tab-content">
-                         <h2 class="section-title">Deleted Clothing</h2>
+                         <h2 class="section-title">Archived Clothing</h2>
                             <table>
                             <thead>
                                 <tr>
@@ -339,8 +339,8 @@ $members_result = $conn->query($members_sql);
                                     <th>Quantity</th>
                                     <th>Condition</th>
                                     <th>Reason</th>
-                                    <th>Deleted By</th>
-                                    <th>Deleted At</th>
+                                    <th>Archived By</th>
+                                    <th>Archived At</th>
                                    
                                 </tr>
                             </thead>
@@ -362,7 +362,7 @@ $members_result = $conn->query($members_sql);
                             echo "</tr>";
                                     }
                                 } else {
-                                    echo "<tr><td colspan='7' style='text-align: center;'>No deleted clothing found</td></tr>";
+                                    echo "<tr><td colspan='7' style='text-align: center;'>No archived clothing found</td></tr>";
                                 }
                                 ?>
                             </tbody>
@@ -371,15 +371,15 @@ $members_result = $conn->query($members_sql);
 
                         <!-- Deleted Member Table -->
                         <div id="tab-members" class="tab-content">
-                        <h2 class="section-title">Deleted Members</h2>
+                        <h2 class="section-title">Archived Members</h2>
                         <table>
                             <thead>
                                 <tr>
                                     <th>Image</th>
                                     <th>Member Name</th>
                                     <th>Reason</th>
-                                    <th>Deleted By</th>
-                                    <th>Deleted At</th>
+                                    <th>Archived By</th>
+                                    <th>Archived At</th>
                                    
                                 </tr>
                             </thead>
@@ -402,7 +402,7 @@ $members_result = $conn->query($members_sql);
                             echo "</tr>";
                                     }
                                 } else {
-                                    echo "<tr><td colspan='7' style='text-align: center;'>No deleted members found</td></tr>";
+                                    echo "<tr><td colspan='7' style='text-align: center;'>No archived members found</td></tr>";
                                 }
                                 ?>
                             </tbody>
